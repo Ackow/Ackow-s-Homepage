@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ackow的个人主页</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- 添加 Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <!-- 左侧 Logo -->
+            <div class="logo-title">
+                <img src="assets/images/icon.png" alt="Logo">
+                <span data-i18n="title">Ackow</span>
+            </div>
+            
+            <!-- 分隔线 -->
+            <div class="divider"></div>
+            
+            <!-- 中间导航 -->
+            <nav>
+                <ul>
+                    <li><a href="#" class="active" data-i18n="nav.home">首页</a></li>
+                    <li><a href="#" data-i18n="nav.works">作品展示</a></li>
+                    <li><a href="http://blog.ackow.cn" target="_blank" data-i18n="nav.blog">博客</a></li>
+                    <li><a href="#" data-i18n="nav.contact">联系</a></li>
+                </ul>
+            </nav>
+            
+            <!-- 分隔线 -->
+            <div class="divider"></div>
+            
+            <!-- 右侧工具栏 -->
+            <div class="tools">
+                <button class="icon-button language-switch" title="Switch Language / 切换语言">
+                    <span class="material-icons-round">language</span>
+                    <span class="current-lang">中</span>
+                </button>
+                <button class="icon-button theme-switch" title="Switch Theme / 切换主题">
+                    <span class="material-icons-round">light_mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 添加一个占位符以防止内容被固定导航栏遮挡 -->
+    <div style="height: 80px;"></div>
+
+    <main>
+        <!-- Hero部分 -->
+        <section class="hero">
+            <div class="tech-background">
+                <div class="grid"></div>
+                <div class="particles"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title" data-i18n="hero.title">Ackow</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">用代码构建未来</p>
+            </div>
+        </section>
+
+        <!-- 内容区域的共享背景 -->
+        <div class="section-wrapper">
+            <!-- 共享的背景 -->
+            <div class="content-sections-bg"></div>
+            <!-- 共享的动态背景 -->
+            <div class="dynamic-bg"></div>
+
+            <!-- 作品全览板块 -->
+            <section class="works-showcase">
+                <div class="floating-elements"></div>
+                <div class="container">
+                    <h2 class="section-title" data-i18n="works.title">作品全览</h2>
+                    <div class="works-slider">
+                        <div class="works-container">
+                            <!-- 作品卡片示例 -->
+                            <div class="work-card">
+                                <div class="work-image">
+                                    <img src="assets/images/works/work1.jpg" alt="Project 1">
+                                </div>
+                                <div class="work-info">
+                                    <h3 data-i18n="works.project1.title">项目一</h3>
+                                    <div class="tags">
+                                        <span class="tag">Vue.js</span>
+                                        <span class="tag">Node.js</span>
+                                        <span class="tag">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 可以添加更多作品卡片 -->
+                        </div>
+                        <div class="slider-controls">
+                            <button class="prev"><span class="material-icons-round">arrow_back</span></button>
+                            <button class="next"><span class="material-icons-round">arrow_forward</span></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 技术栈展示板块 -->
+            <section class="skills-showcase">
+                <div class="floating-elements"></div>
+                <div class="container">
+                    <h2 class="section-title" data-i18n="skills.title">技术栈</h2>
+                    <div class="skills-cloud" id="skillsCloud"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 使用 type="module" 来支持 ES6 模块 -->
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
