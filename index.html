@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ackow的个人主页</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/works.css">
     <!-- 添加 Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </head>
@@ -13,7 +14,6 @@
         <div>
             <!-- 左侧 Logo -->
             <div class="logo-title">
-                <img src="assets/images/icon.png" alt="Logo">
                 <span data-i18n="title">Ackow</span>
             </div>
             
@@ -50,68 +50,27 @@
     <div style="height: 80px;"></div>
 
     <main>
-        <!-- Hero部分 -->
-        <section class="hero">
-            <div class="tech-background">
-                <div class="grid"></div>
-                <div class="particles"></div>
-            </div>
-            <div class="hero-content">
-                <h1 class="hero-title" data-i18n="hero.title">Ackow</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">用代码构建未来</p>
-            </div>
-        </section>
+        <div class="hero-content">
+            <h1 class="hero-title" data-i18n="hero.title">Ackow</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">用代码构建未来</p>
+        </div>
 
-        <!-- 内容区域的共享背景 -->
-        <div class="section-wrapper">
-            <!-- 共享的背景 -->
-            <div class="content-sections-bg"></div>
-            <!-- 共享的动态背景 -->
-            <div class="dynamic-bg"></div>
-
-            <!-- 作品全览板块 -->
-            <section class="works-showcase">
-                <div class="floating-elements"></div>
-                <div class="container">
-                    <h2 class="section-title" data-i18n="works.title">作品全览</h2>
-                    <div class="works-slider">
-                        <div class="works-container">
-                            <!-- 作品卡片示例 -->
-                            <div class="work-card">
-                                <div class="work-image">
-                                    <img src="assets/images/works/work1.jpg" alt="Project 1">
-                                </div>
-                                <div class="work-info">
-                                    <h3 data-i18n="works.project1.title">项目一</h3>
-                                    <div class="tags">
-                                        <span class="tag">Vue.js</span>
-                                        <span class="tag">Node.js</span>
-                                        <span class="tag">MongoDB</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 可以添加更多作品卡片 -->
-                        </div>
-                        <div class="slider-controls">
-                            <button class="prev"><span class="material-icons-round">arrow_back</span></button>
-                            <button class="next"><span class="material-icons-round">arrow_forward</span></button>
-                        </div>
+        <div class="container">
+            <!-- 作品展示部分 -->
+            <section class="works-section">
+                <h2 class="section-title" data-i18n="works.title">作品展示</h2>
+                <div class="works-carousel">
+                    <div class="works-container">
+                        <!-- 卡片将由 JavaScript 动态生成 -->
                     </div>
                 </div>
             </section>
-
-            <!-- 技术栈展示板块 -->
-            <section class="skills-showcase">
-                <div class="floating-elements"></div>
-                <div class="container">
-                    <h2 class="section-title" data-i18n="skills.title">技术栈</h2>
-                    <div class="skills-cloud" id="skillsCloud"></div>
-                </div>
-            </section>
         </div>
+        
+        
     </main>
 
-    <!-- 使用 type="module" 来支持 ES6 模块 -->
+    <!-- 添加 JavaScript 文件 -->
     <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
