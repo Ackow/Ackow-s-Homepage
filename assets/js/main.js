@@ -119,7 +119,8 @@ function updatePageText(lang) {
             'works.title': '作品展示',
             'works.headline': '作品介绍',
             'contact.headline': '联系',
-            'tech.title': '技术栈'
+            'tech.title': '技术栈',
+            'footer.copyright': '© 2025 Ackow. 保留所有权利。'
         },
         en: {
             'nav.home': 'Home',
@@ -131,7 +132,8 @@ function updatePageText(lang) {
             'works.title': 'Works',
             'works.headline': 'Works Introduction',
             'contact.headline': 'Contact',
-            'tech.title': 'Tech Stack'
+            'tech.title': 'Tech Stack',
+            'footer.copyright': '© 2025 Ackow. All rights reserved.'
         }
     };
     
