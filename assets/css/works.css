@@ -1,27 +1,26 @@
 /* 作品展示部分样式 */
 .works-section {
-    padding: 50px 0;
+    padding: 60px 0;
     position: relative;
     /* background-color: rgb(255, 250, 246); */
-    min-height: 100vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     opacity: 0;
     transform: translateY(50px);
     transition: all 1s ease;
-    margin-top: 92vh; /* 确保在主页背景之后 */
+    /* margin-top: 10vh; 确保在主页背景之后 */
 }
 
 .works-section::before {
-    margin-top: 50px;
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -75%);
+    transform: translate(-50%, -50%);
     width: 70%;
-    height: 700px; /* 固定高度 */
+    height: 600px; /* 固定高度 */
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 30px;
@@ -161,7 +160,7 @@
 }
 
 .dark-theme .work-card {
-    background-image: linear-gradient(163deg, #ffee00 0%, #ff7300 100%);
+    background-image: linear-gradient(163deg, #33ff1c 0%, #0040ff 100%);
 }
 
 .dark-theme .work-card .card2 {
@@ -197,4 +196,157 @@
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.article-background{
+    background-image: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0) 0%,
+        /* rgba(255, 255, 255, 0) 30%, */
+        rgba(255, 255, 255, 0.98) 7.5%,  
+        rgb(255, 255, 255) 100%
+    );
+}
+
+.dark-theme .article-background{
+    background-image: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0) 0%,
+        /* rgba(255, 255, 255, 0) 5%, */
+        rgba(30, 30, 30, 0.98) 7.5%,  
+        rgb(0, 0, 0) 100%
+    );
+}
+
+/* .article-headline {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    max-width: 400px;
+    min-width: 400px;
+    padding: 40px 60px;
+    background-color: rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(5px);
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    mask-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 10%,
+        rgba(0, 0, 0, 1) 90%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 10%,
+        rgba(0, 0, 0, 1) 90%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+} */
+
+/* 文章展示样式 */
+/* .article-container {
+    max-width: 1000px;
+    min-height: 900px;
+    margin: 0 auto;
+    padding: 600px 40px 40px;
+    position: relative;
+} */
+
+.article-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 50px 300px;
+}
+
+.article-card {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.article-image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-title {
+    margin: 0 0 20px;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.article-text {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.article-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.article-tag {
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .article-container {
+        padding: 100px 20px 20px;
+    }
+    
+    .article-list {
+        padding: 20px;
+    }
+    
+    .article-image {
+        height: 250px;
+    }
+    
+    .article-content {
+        padding: 20px;
+    }
+    
+    .article-title {
+        font-size: 1.5rem;
+    }
+    
+    .article-text {
+        font-size: 1rem;
+    }
 }

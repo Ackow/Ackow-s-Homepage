@@ -1,4 +1,37 @@
-import { WorksCarousel } from './modules/carousel.js';
+// 根据当前页面决定是否导入轮播功能
+const currentPage = window.location.pathname;
+if (currentPage.includes('index.html') || currentPage === '/' || currentPage === '/index.html') {
+    // 导入并初始化轮播
+    import('./modules/carousel.js').then(module => {
+        const { WorksCarousel } = module;
+        try {
+            const worksSection = document.querySelector('.works-section');
+            if (worksSection) {
+                worksSection.classList.add('visible');
+            }
+            
+            const carousel = new WorksCarousel();
+            console.log('Carousel initialized:', carousel);
+        } catch (error) {
+            console.error('Error initializing carousel:', error);
+        }
+    }).catch(error => {
+        console.error('Error loading carousel module:', error);
+    });
+
+    // 导入并初始化技术栈词云
+    import('./modules/techCloud.js').then(module => {
+        const { TechCloud } = module;
+        try {
+            const techCloud = new TechCloud();
+            console.log('Tech cloud initialized:', techCloud);
+        } catch (error) {
+            console.error('Error initializing tech cloud:', error);
+        }
+    }).catch(error => {
+        console.error('Error loading tech cloud module:', error);
+    });
+}
 
 // 主题切换功能
 document.addEventListener('DOMContentLoaded', () => {    
@@ -35,49 +68,24 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 检查本地存储中的语言设置
     const savedLang = localStorage.getItem('language') || 'zh';
-    currentLang.textContent = savedLang === 'zh' ? '中' : 'En';
+    if (currentLang) {
+        currentLang.textContent = savedLang === 'zh' ? '中' : 'En';
+    }
     
     // 初始化页面文本
     updatePageText(savedLang);
     
     // 语言切换事件
-    languageSwitch.addEventListener('click', () => {
-        console.log('Language switch clicked');
-        const newLang = currentLang.textContent === '中' ? 'en' : 'zh';
-        currentLang.textContent = newLang === 'zh' ? '中' : 'En';
-        localStorage.setItem('language', newLang);
-        
-        // 更新页面文本
-        updatePageText(newLang);
-    });
-
-    // 初始化作品轮播
-    try {
-        const worksSection = document.querySelector('.works-section');
-        if (worksSection) {
-            worksSection.classList.add('visible'); // 立即显示作品展示部分
-        }
-        
-        const carousel = new WorksCarousel();
-        console.log('Carousel initialized:', carousel);
-    } catch (error) {
-        console.error('Error initializing carousel:', error);
-    }
-    
-    // 监听滚动事件，实现背景过渡
-    const worksSection = document.querySelector('.works-section');
-    if (worksSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    worksSection.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        observer.observe(worksSection);
-    } else {
-        console.error('Works section not found');
+    if (languageSwitch) {
+        languageSwitch.addEventListener('click', () => {
+            console.log('Language switch clicked');
+            const newLang = currentLang.textContent === '中' ? 'en' : 'zh';
+            currentLang.textContent = newLang === 'zh' ? '中' : 'En';
+            localStorage.setItem('language', newLang);
+            
+            // 更新页面文本
+            updatePageText(newLang);
+        });
     }
 
     // 监听滚动事件，实现导航栏背景透明度渐变
@@ -103,11 +111,15 @@ function updatePageText(lang) {
     const translations = {
         zh: {
             'nav.home': '首页',
-            'nav.works': '作品展示',
+            'nav.works': '作品介绍',
             'nav.blog': '博客',
             'nav.contact': '联系',
             'hero.title': 'Ackow',
-            'hero.subtitle': '用代码构建未来'
+            'hero.subtitle': '用代码构建未来',
+            'works.title': '作品展示',
+            'works.headline': '作品介绍',
+            'contact.headline': '联系',
+            'tech.title': '技术栈'
         },
         en: {
             'nav.home': 'Home',
@@ -115,7 +127,11 @@ function updatePageText(lang) {
             'nav.blog': 'Blog',
             'nav.contact': 'Contact',
             'hero.title': 'Ackow',
-            'hero.subtitle': 'Building Future with Code'
+            'hero.subtitle': 'Building Future with Code',
+            'works.title': 'Works',
+            'works.headline': 'Works Introduction',
+            'contact.headline': 'Contact',
+            'tech.title': 'Tech Stack'
         }
     };
     
@@ -125,7 +141,11 @@ function updatePageText(lang) {
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            if (element.tagName === 'TITLE') {
+                document.title = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
         }
     });
 } 
