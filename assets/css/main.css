@@ -30,10 +30,10 @@ html, body {
 }
 
 .background-image {
-    margin-top: -45vh;
+    /* margin-top: -45vh; */
     background-image: var(--background-image);
     width: 100%;
-    height: 100vh;
+    height: 40vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -197,7 +197,7 @@ html {
 /* Hero 内容样式 */
 .hero-content {
     position: relative;
-    margin-top: 350px;
+    /* margin-top: 350px; */
     z-index: 2;
     text-align: center;
     max-width: 400px;
@@ -286,7 +286,7 @@ html {
 .container {
     width: 100%;
     height: 100%;
-    padding-bottom: 10vh;
+    min-height: 50vh;
     --color: rgba(255, 194, 137, 0.3);
     background-color: #ffffff;
     background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
@@ -296,9 +296,7 @@ html {
 
 /* From Uiverse.io by adamgiebl */ 
 .dark-theme .container {
-    width: 100%;
-    height: 100%;
-    padding-bottom: 20vh;
+
     --color: rgba(114, 114, 114, 0.3);
     background-color: #191a1a;
     background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
