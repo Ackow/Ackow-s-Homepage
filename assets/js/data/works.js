@@ -43,7 +43,7 @@ const worksData = [
         id: 6,
         title: '混乱大枪战复刻版',
         description: '这是一个基于Unity开发的2D玩家对战游戏，玩家需要使用各种武器，最终击败对手。',
-        image: 'assets/images/works/work6.png',
+        image: 'assets/images/works/work06.png',
         tags: ['Unity', 'C#'],
         link: '#'
     }
