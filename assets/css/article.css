@@ -52,7 +52,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .article-tag {
@@ -125,15 +125,19 @@
     color: #e6e6e6;
 }
 
+.article-detail-image{
+    text-align: center;
+}
+
 .article-detail-image img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 400px;
     margin-bottom: 1.5rem;
     border-radius: 10px;
 }
 
 .article-detail-content p {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     line-height: 1.8;
     margin-bottom: 1.2rem;
 }

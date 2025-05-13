@@ -102,6 +102,14 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.backgroundColor = `rgba(255, 255, 255, ${0.4 + opacity * 0.6})`;
         }
     });
+
+        if (currentPage.includes('works.html')) {
+        import('./modules/renderWorks.js').then(module => {
+            module.renderWorks();
+        }).catch(error => {
+            console.error('Failed to load renderWorks:', error);
+        });
+    }
 });
 
 // 更新页面文本

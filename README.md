@@ -6,26 +6,29 @@
 
 ```
 .
-├── index.html              # 主页
-├── works.html             # 作品展示页
-├── contact.html           # 联系页面
-├── assets/
-│   ├── css/              # 样式文件
-│   │   ├── main.css      # 主要样式
-│   │   ├── works.css     # 作品展示样式
-│   │   ├── tech.css      # 技术栈样式
-│   │   └── contact.css   # 联系页面样式
-│   ├── js/               # JavaScript文件
-│   │   ├── main.js       # 主要脚本
-│   │   ├── data/         # 数据文件
-│   │   │   └── works.js  # 作品数据
-│   │   └── modules/      # 模块文件
-│   │       ├── carousel.js # 轮播模块
-│   │       └── techCloud.js # 技术栈词云模块
-│   └── images/           # 图片资源
-│       ├── background_day.jpg   # 日间背景
-│       ├── background_night.jpg # 夜间背景
-│       └── works/        # 作品图片
+├── index.html                      # 主页
+├── pages/                          # 页面文件
+├── assets/                         # 资源文件
+│   ├── css/                        # 样式文件
+│   │   ├── main.css                # 主要样式
+│   │   ├── works.css               # 作品展示样式
+│   │   ├── tech.css                # 技术栈样式
+│   │   └── contact.css             # 联系页面样式
+│   │   └── article.css             # 文章页面样式
+│   ├── js/                         # JavaScript文件
+│   │   ├── main.js                 # 主要脚本
+│   │   ├── data/                   # 数据文件
+│   │   │   └── works.js            # 作品数据
+│   │   └── modules/                # 模块文件
+│   │       ├── carousel.js         # 轮播模块
+│   │       ├── renderWorks.js      # 文章列表渲染模块
+│   │       └── techCloud.js        # 技术栈词云模块
+│   ├── icons/                      # 图标文件
+│   └── images/                     # 图片资源
+│       ├── background_day.jpg      # 日间背景
+│       ├── background_night.jpg    # 夜间背景
+│       └── works/                  # 作品图片
+│       └── article/                # 文章图片
 ```
 
 ## 特性
