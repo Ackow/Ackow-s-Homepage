@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-        if (currentPage.includes('works.html')) {
+    if (currentPage.includes('works.html')) {
         import('./modules/renderWorks.js').then(module => {
             module.renderWorks();
             console.log('脚本加载成功')

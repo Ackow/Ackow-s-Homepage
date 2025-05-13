@@ -7,8 +7,8 @@
 ```
 .
 ├── index.html                      # 主页
-├── pages/                          # 页面文件
 ├── assets/                         # 资源文件
+│   ├── pages/                          # 页面文件
 │   ├── css/                        # 样式文件
 │   │   ├── main.css                # 主要样式
 │   │   ├── works.css               # 作品展示样式
