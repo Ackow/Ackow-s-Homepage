@@ -22,6 +22,7 @@
 │   │   └── modules/                # 模块文件
 │   │       ├── carousel.js         # 轮播模块
 │   │       ├── renderWorks.js      # 文章列表渲染模块
+│   │       ├── contactModule.js    # 留言模块
 │   │       └── techCloud.js        # 技术栈词云模块
 │   ├── icons/                      # 图标文件
 │   └── images/                     # 图片资源
@@ -29,6 +30,7 @@
 │       ├── background_night.jpg    # 夜间背景
 │       └── works/                  # 作品图片
 │       └── article/                # 文章图片
+│       └── avatars/                # 头像图片
 ```
 
 ## 特性

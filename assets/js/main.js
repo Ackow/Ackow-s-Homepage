@@ -108,9 +108,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (currentPage.includes('works') || currentPage == '/assets/pages/works.html') {
         import('./modules/renderWorks.js').then(module => {
             module.renderWorks();
-            console.log('脚本加载成功')
+            // console.log('脚本加载成功')
         }).catch(error => {
             console.error('Failed to load renderWorks:', error);
+        });
+    }
+    // 检查是否为联系页面
+    if (currentPage.includes('contact') || currentPage == '/assets/pages/contact.html') {
+        import('./modules/contactModule.js').then(module => {
+            module.initContact();
+            console.log('Contact module initialized');
+        }).catch(error => {
+            console.error('Error loading contact module:', error);
         });
     }
 });
@@ -131,7 +140,10 @@ function updatePageText(lang) {
             'works.headline': '作品介绍',
             'contact.headline': '联系',
             'tech.title': '技术栈',
-            'footer.copyright': '© 2025 Ackow. 保留所有权利。'
+            'footer.copyright': '© 2025 Ackow. 保留所有权利。',
+            'contact.message_title':'留言列表',
+            'contact.send_button':'发送',
+            'contact.input_placeholder':'请输入留言内容',
         },
         en: {
             'nav.home': 'Home',
@@ -144,7 +156,10 @@ function updatePageText(lang) {
             'works.headline': 'Works Introduction',
             'contact.headline': 'Contact',
             'tech.title': 'Tech Stack',
-            'footer.copyright': '© 2025 Ackow. All rights reserved.'
+            'footer.copyright': '© 2025 Ackow. All rights reserved.',
+            'contact.message_title':'Message List',
+            'contact.send_button':'Send',
+            'contact.input_placeholder':'Please enter your message',
         }
     };
     
@@ -161,4 +176,4 @@ function updatePageText(lang) {
             }
         }
     });
-} 
+}
