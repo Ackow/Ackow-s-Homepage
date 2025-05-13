@@ -35,7 +35,7 @@ if (currentPage.includes('index.html') || currentPage == '/' || currentPage == '
 
 // 主题切换功能
 document.addEventListener('DOMContentLoaded', () => {   
-    console.log(currentPage);
+    // console.log(currentPage);
     
     const themeSwitch = document.querySelector('.theme-switch');
     const body = document.body;
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    if (currentPage.includes('works.html') || currentPage == '/assets/pages/works.html') {
+    if (currentPage.includes('works') || currentPage == '/assets/pages/works.html') {
         import('./modules/renderWorks.js').then(module => {
             module.renderWorks();
             console.log('脚本加载成功')
