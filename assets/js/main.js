@@ -1,8 +1,8 @@
 // 根据当前页面决定是否导入轮播功能
 const currentPage = window.location.pathname;
-if (currentPage.includes('index.html')) {
+if (currentPage.includes('index.html') || currentPage == '/' || currentPage == '/index.html') {
     // 导入并初始化轮播
-    import('/assets/js/modules/carousel.js').then(module => {
+    import('./modules/carousel.js').then(module => {
         const { WorksCarousel } = module;
         try {
             const worksSection = document.querySelector('.works-section');
@@ -20,7 +20,7 @@ if (currentPage.includes('index.html')) {
     });
 
     // 导入并初始化技术栈词云
-    import('/assets/js/modules/techCloud.js').then(module => {
+    import('./modules/techCloud.js').then(module => {
         const { TechCloud } = module;
         try {
             const techCloud = new TechCloud();
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (currentPage.includes('works.html')) {
-        import('/assets/js/modules/renderWorks.js').then(module => {
+        import('./modules/renderWorks.js').then(module => {
             module.renderWorks();
             console.log('脚本加载成功')
         }).catch(error => {
