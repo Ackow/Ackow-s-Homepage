@@ -1,6 +1,6 @@
 // 根据当前页面决定是否导入轮播功能
 const currentPage = window.location.pathname;
-if (currentPage.includes('index.html') || currentPage === '/' || currentPage === '/index.html') {
+if (currentPage.includes('index.html')) {
     // 导入并初始化轮播
     import('./modules/carousel.js').then(module => {
         const { WorksCarousel } = module;
