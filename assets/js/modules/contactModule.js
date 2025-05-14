@@ -16,13 +16,29 @@ function createMessageItem(msg) {
     avatarImg.alt = 'avatar';
     avatarImg.classList.add('message-avatar');
 
+    const contentDiv = document.createElement('div');
+    contentDiv.classList.add('message-content');
+
     const textSpan = document.createElement('span');
     textSpan.textContent = msg.message;
+    textSpan.classList.add('message-text');
+
+    const timeSpan = document.createElement('span');
+    timeSpan.classList.add('message-time');
+
+    // 格式化时间
+    const date = new Date(msg.createdAt);
+    timeSpan.textContent = date.toLocaleString(); // 可根据需要使用 toLocaleDateString() 或 toLocaleTimeString()
+
+    contentDiv.appendChild(textSpan);
+    contentDiv.appendChild(timeSpan);
 
     li.appendChild(avatarImg);
-    li.appendChild(textSpan);
+    li.appendChild(contentDiv);
+
     return li;
 }
+
 
 async function setupContact() {
     console.log('Contact module initialization started');
