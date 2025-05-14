@@ -26,7 +26,7 @@ export class TechCloud {
     init() {
         this.generateCloud();
         // 添加窗口大小变化监听
-        window.addEventListener('resize', () => this.generateCloud());
+        // window.addEventListener('resize', () => this.generateCloud());
     }
     
     generateCloud() {
