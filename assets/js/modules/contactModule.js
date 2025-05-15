@@ -12,7 +12,7 @@ function createMessageItem(msg) {
     li.classList.add('message-item');
 
     const avatarImg = document.createElement('img');
-    avatarImg.src = getAvatarPath(msg.avatarIndex);  // 使用返回的头像编号
+    avatarImg.src = getAvatarPath(msg.avatarIndex);
     avatarImg.alt = 'avatar';
     avatarImg.classList.add('message-avatar');
 
@@ -23,22 +23,39 @@ function createMessageItem(msg) {
     textSpan.textContent = msg.message;
     textSpan.classList.add('message-text');
 
+    const metaDiv = document.createElement('div');
+    metaDiv.classList.add('message-meta');
+    
     const timeSpan = document.createElement('span');
     timeSpan.classList.add('message-time');
-
-    // 格式化时间
     const date = new Date(msg.createdAt);
-    timeSpan.textContent = date.toLocaleString(); // 可根据需要使用 toLocaleDateString() 或 toLocaleTimeString()
+    timeSpan.textContent = date.toLocaleString();
+    
+    metaDiv.appendChild(timeSpan);
+    
+    if(!msg.location) {
+        msg.location = '未知';
+    }
 
-    contentDiv.appendChild(textSpan);
-    contentDiv.appendChild(timeSpan);
+    if (msg.location) {
+        const locationSpan = document.createElement('span');
+        locationSpan.classList.add('message-location');
+        locationSpan.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" 
+        width="12" height="12" fill="#888" viewBox="0 0 16 16" style="margin-right: 4px; vertical-align: middle;">
+        <path d="M8 0a5.53 5.53 0 0 0-5.5 5.5c0 3.5 5.5 10.5 5.5 10.5s5.5-7 5.5-10.5A5.53 5.53 0 0 0 8 0zm0 8a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+    </svg>${msg.location}`;
+        metaDiv.appendChild(locationSpan);
+    }
+    
+    contentDiv.appendChild(textSpan);   // 留言内容
+    contentDiv.appendChild(metaDiv);   // 时间 + 定位信息
+    
 
     li.appendChild(avatarImg);
     li.appendChild(contentDiv);
 
     return li;
 }
-
 
 async function setupContact() {
     console.log('Contact module initialization started');
@@ -90,7 +107,7 @@ async function setupContact() {
     sendButton.addEventListener('click', async () => {
         const message = messageInput.value.trim();
         if (message) {
-            const avatarIndex = Math.floor(Math.random() * AVATAR_COUNT) + 1; // 随机头像编号
+            const avatarIndex = Math.floor(Math.random() * AVATAR_COUNT) + 1;
 
             try {
                 const response = await fetch(API_URL, {
@@ -109,7 +126,6 @@ async function setupContact() {
         }
     });
 
-    // 回车发送
     messageInput.addEventListener('keypress', event => {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -118,7 +134,6 @@ async function setupContact() {
     });
 }
 
-// 导出初始化函数
 export function initContact() {
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', setupContact);
