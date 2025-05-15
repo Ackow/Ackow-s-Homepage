@@ -108,6 +108,7 @@ async function setupContact() {
         const message = messageInput.value.trim();
         if (message) {
             const avatarIndex = Math.floor(Math.random() * AVATAR_COUNT) + 1;
+            messageInput.value = '';
 
             try {
                 const response = await fetch(API_URL, {
@@ -119,7 +120,6 @@ async function setupContact() {
                 const newMessage = await response.json();
                 const newLi = createMessageItem(newMessage);
                 messageList.appendChild(newLi);
-                messageInput.value = '';
             } catch (error) {
                 console.error('发送留言失败:', error);
             }
